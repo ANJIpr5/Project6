@@ -1,0 +1,272 @@
+#p, h1 {
+  text-align: center;
+  color: rgb(39, 42, 111);
+  font-size: large;
+}
+
+p {
+  font-size: x-small;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.demo-border {
+  border: 3px solid #36696d;
+  box-shadow: 6px 6px 15px rgba(125, 2, 2, 0.3); 
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+#myBooks {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#myBooks::after:hover{
+  background-color: aqua;
+}
+
+#logoImage::before {
+  content: url('https://raw.githubusercontent.com/ANJIpr5/images-project-6/main/logo1.png');
+  display: block;
+  margin: 12px auto;
+}
+#logoImage {
+  display: block;
+  margin: 0 auto;
+  max-width: 35%; /* Adjust this value as needed */
+  height: auto;
+}
+
+.ajouter-button {
+  background-color: #19c04e; 
+  color: #fff; 
+  cursor: pointer; 
+  font-size: 22px; 
+  border-radius: 12px; 
+  width: 280px;
+  height: auto;
+  margin: 15px auto;
+}
+  
+.ajouter-button:hover {
+  background-color: #0056b3; 
+}
+
+.search-form {
+  text-align: center;
+  margin-top: 20px;
+  display: block;
+}
+
+.search-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  display: block;
+}
+
+.rechercher-button {
+  display:inline-flex;
+  background-color: #4f8607;
+  color: #fff;
+  margin-right: 7px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 11px;
+  width: 172px;
+  height: auto;
+}
+
+.annuler-button {
+  display:inline-flex;
+  background-color: #b84f04;
+  color: #ffff;
+  margin-left: 7px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 11px;
+  width: 172px;
+  height: auto;
+}
+
+.search-results {
+  text-align: center; 
+  margin-top: 20px;
+}
+#search-Results {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: x-small;
+  text-align: center;
+  font-weight: lighter;
+
+}
+
+
+/* Styles for search results with delete icons */
+#search-Results .book-result.bookmarked .delete-icon {
+  display: none; /* Hide delete icons for search results */
+}
+
+/* Default style for small screens (1 book per line) */
+.book-result {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.book-result {
+  box-sizing: border-box;
+  width: 100%; // Default width for small screens (1 book per line)
+
+  p.information-missing {
+    color: red;
+    font-weight: bold; // You can adjust the styling as needed
+  }
+  h3 {
+    font-size:small  ;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .book-result img {
+    width: 100%; // Ensure the image takes the full width of its container
+    height: 150px; // Set a fixed height for all images, adjust as needed
+    object-fit: cover; // Maintain aspect ratio and cover the entire container
+    margin-bottom: 10px; // Optional margin for spacing between images
+  }
+
+  // Media query for medium-sized screens (e.g., iPad)
+  @media screen and (min-width: 600px) {
+    width: 50%; // 2 books per line
+  }
+
+  // Media query for large screens (e.g., computer display)
+  @media screen and (min-width: 1024px) {
+    width: 31%; // 3 books per line
+  }
+}
+.maPocheListe {
+  text-align: center; 
+  margin-top: 20px;
+}
+#maPocheListe {
+  background-color: #c8f6d0;
+  display: flex;
+  flex-wrap: wrap;
+  //font-size: x-small;
+  text-align: center;
+  font-weight: lighter;
+}
+#maPocheListe h2 {
+  margin-top: 0; /* Add this line to set margin-top to 0 for h2 element */
+  display:block;
+  text-align: center;
+}
+
+
+
+.bookmark-icon {
+  display: none; /* Hide the former bookmark icon */
+}
+
+/* Style the Font Awesome bookmark icon */
+.book-result .fas.fa-bookmark {
+  display: inline-flex;
+  font-size: 27px; /* Adjust the size as needed */
+  color: rgb(241, 42, 145); /* Set the color to pink or any other desired color */
+  margin-top: auto;
+  margin-right: 7px;
+}
+
+.delete-icon {
+  font-size: 27px; // Adjust the size as needed
+  // You can also add other styles if necessary
+}
+
+.book-result.bookmarked {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#book-result.bookmarked {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: x-small;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.book-result.bookmarked h3 {
+  font-size: small;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.book-cover {
+  width: 100px; // Adjust the width to your desired value
+  height: 150px; // Adjust the height to your desired value
+  max-width: 100%; // Ensure the image doesn't exceed its container
+  height: auto;   // Maintain aspect ratio
+  border: 1px solid #ddd;
+}
+
+.book-result.bookmarked p.information-missing {
+  color: red;
+  font-weight: bold;
+  width: 100%;
+}
+.book-result.bookmarked img {
+  //width: 60%; /* Adjust the width as needed */
+  max-width:100%; /* Ensure the image does not exceed its container */
+  height: 150px; /* Set a fixed height for all images, adjust as needed */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.delete-icon {
+  //font-size: 26px;
+  margin-top: auto;
+}
+
+@media screen and (min-width: 600px) {
+  .book-result.bookmarked {
+    width: 48%; // 2 items per row on medium screens
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .book-result.bookmarked {
+    width: 31%; // 3 items per row on large screens
+  }
+}
+
+#content {
+  text-align: center;
+}
+.delete-icon-search {
+  display: none;
+}
+
+#maPocheListeContainer {
+  margin:  auto; /* This centers the container horizontally */
+  max-width: 600px; /* Adjust the max-width based on your design */
+  text-align: center; /* This centers the content inside the container */
+}
+
+.maPocheListe {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content vertically within the container */
+}
