@@ -13,7 +13,7 @@ function afficheButtonAjouterLivre(){
 
     // Create the 'h2' element
     const maPochListeHeading = document.createElement("h2");
-    maPochListeHeading.textContent = "Ma Poch'Liste";
+    maPochListeHeading.textContent = "";
 
     // Append the 'h2' element to the container
     maPocheListeContainer.appendChild(maPochListeHeading);
@@ -150,7 +150,7 @@ function createButton(text,id,className) {
         //show the "annuler" button//
         const ajouterButton = document.getElementById("Ajouter-Livre-Button");
         if (ajouterButton){
-        ajouterButton.style.display = "block";
+        ajouterButton.style.display = "flex";
         }
         const myBooks = document.getElementById("myBooks");
         const searchForm = document.getElementById("searchForm");
@@ -541,7 +541,9 @@ function deleteBookFromList(identifier) {
 
 
 
-//to do: NO AVAILABLE IMAGE done:   2. Ma poch liste after rechercher button
+
 //upoad to git and Open classroon
 
+// 1.Small screen need to adjusted 2. ajouter liver buton centered 3 rechercher  et annuler alighned.4 the 2 boxes of the form need t be filled to do search .5 Bookmark cannot be added twice
+//6.align search results (add a fixed height in CSS in decription) . 7.There is an addition calss that needstto be deleted
 
