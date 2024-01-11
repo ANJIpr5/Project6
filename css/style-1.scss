@@ -122,7 +122,7 @@ p {
 
 /* Styles for search results with delete icons */
  .book-result.bookmarked .delete-icon {
-  display: none; /* Hide delete icons for search results */
+  display: inline; /* Hide delete icons for search results */
 }
 
 /* Default style for small screens (1 book per line) */

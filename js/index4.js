@@ -95,6 +95,8 @@ function createButton(text,id,className) {
 
  //function To make the search form dynamic//
  function createSearchForm () {
+
+    
     const searchForm = document.createElement("form");
     searchForm.id = "searchForm";
     searchForm.className = "search-form";
@@ -104,6 +106,26 @@ function createButton(text,id,className) {
     const auteurInput = createInput("AUTEUR","auteur","text", true);
 
     const rechercherButton = createButton("RECHERCHER", "rechercher", "rechercher-button");
+
+    // Disable the "RECHERCHER" button initially
+
+    rechercherButton.disabled = true;
+
+    // Add input event listeners to enable/disable the button based on input
+    titreInput.addEventListener("input", toggleRechercherButton);
+    auteurInput.addEventListener("input", toggleRechercherButton);
+
+    function toggleRechercherButton() {
+        const titreValue = titreInput.value;
+        const auteurValue = auteurInput.value;
+
+        // Enable the button only if both fields are filled
+        rechercherButton.disabled = !(titreValue && auteurValue);
+    }
+    
+
+
+
     const annulerButton = createButton("ANNULER", "annuler","annuler-button");
     
 
@@ -120,6 +142,10 @@ function createButton(text,id,className) {
         
         const titre = document.getElementById("titre-du-livre").value;
         const auteur = document.getElementById("auteur").value;
+
+        // Check if both fields are filled before initiating the search
+        if (titre && auteur) {
+
         console.log ("Searching for The Book");
         const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(titre + " " + auteur)}&key=${"AIzaSyDfwrwQrF1U1GXA7Z2vMTKHICvTLhBlheM"}`;
         
@@ -142,7 +168,11 @@ function createButton(text,id,className) {
                 console.error("API Request Error:", error);
                 
     
-            });        
+            });   
+        } else {
+            console.log("Please fill in both the title and author fields.");
+        }
+
         });
            
 //handling the "ANNULER" button
@@ -219,6 +249,9 @@ let bookmarkedBooks = JSON.parse(sessionStorage.getItem('bookmarkedBook')) || []
 
 
 function bookmarkBook (identifier, title, author, description, imageLink){
+    const existingBook = bookmarkedBooks.find(book => book.identifier === identifier);
+
+    if (!existingBook) {
     const bookInfo = {
         identifier: identifier,
         title: title,
@@ -226,12 +259,17 @@ function bookmarkBook (identifier, title, author, description, imageLink){
         description: description,
         imageLink: imageLink
     };
+
     bookmarkedBooks.push(bookInfo);
     // Update session storage with the updated array
     updateSessionStorage();
 
     console.log(`Book with identifier ${identifier} bookmarked`);
     displayBookmarkedBooks();
+} else {
+    console.log(`Book with identifier ${identifier} is already bookmarked`);
+    }
+    
 }
 function updateSessionStorage() {
     // Update session storage with the current bookmarkedBooks array
