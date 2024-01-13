@@ -1,4 +1,6 @@
-#p, h1 {
+/*HEADER STYLES*/
+#p,
+h1 {
   text-align: center;
   color: rgb(39, 42, 111);
   font-size: large;
@@ -17,6 +19,7 @@ p {
   text-align: center;
 }
 
+/* CONTAINER STYLES */
 .container {
   display: flex;
   justify-content: center;
@@ -35,6 +38,7 @@ p {
   background-color: aqua;
 }
 
+/* LOGO STYLES */
 #logoImage::before {
   content: url("https://raw.githubusercontent.com/ANJIpr5/images-project-6/main/logo1.png");
   display: block;
@@ -44,10 +48,11 @@ p {
 #logoImage {
   display: block;
   margin: 0 auto;
-  max-width: 35%; /* Adjust this value as needed */
+  max-width: 35%;
   height: auto;
 }
 
+/* BUTTON STYLES */
 .ajouter-button {
   display: block;
   background-color: #19c04e;
@@ -64,12 +69,14 @@ p {
   background-color: #0056b3;
 }
 
+/* SEARCH FORM STYLES */
 .search-form {
   text-align: center;
   margin-top: 20px;
   display: block;
 }
 
+/* INPUT STYLES */
 .search-form input {
   width: 100%;
   padding: 10px;
@@ -77,34 +84,32 @@ p {
   display: block;
 }
 
-.rechercher-button {
+/* BUTTON STYLES */
+.rechercher-button,
+.annuler-button {
   display: inline-flex;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1vw;
+  border-radius: 2vw;
+  padding: 5px;
+  width: 40%;
+  max-width: 172px;
+}
+
+.rechercher-button {
   background-color: #4f8607;
   color: #fff;
   margin-right: 3px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 1vw;
-  border-radius: 2vw;
-  padding: 5px;
-  width: 40%;
-  max-width: 172px;
 }
 
 .annuler-button {
-  display: inline-flex;
   background-color: #b84f04;
   color: white;
   margin-left: 3px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 1vw;
-  border-radius: 2vw;
-  padding: 5px;
-  width: 40%;
-  max-width: 172px;
 }
 
+/* SEARCH RESULT STYLES */
 .search-results {
   text-align: center;
   margin-top: 20px;
@@ -118,12 +123,11 @@ p {
   font-weight: lighter;
 }
 
-/* Styles for search results with delete icons */
+/* BOOK RESULT STYLES */
 .book-result.bookmarked .delete-icon {
   display: inline; /* Hide delete icons for search results */
 }
 
-/* Default style for small screens (1 book per line) */
 .book-result {
   box-sizing: border-box;
   width: 100%;
@@ -131,10 +135,7 @@ p {
   font-size: 1vw;
 }
 @media screen and (max-width: 400px) {
-  .book-result .book-result {
-    width: 100%;
-  }
-  .book-result .book-result.bookmarked {
+  .book-result {
     width: 100%;
   }
 }
@@ -160,13 +161,13 @@ p {
   .book-result .rechercher-button,
   .book-result .annuler-button {
     font-size: 5px;
-    width: 80%; /* Adjust the width for smaller screens */
-    max-width: none; /* Remove the maximum width limit */
-    margin: 5px auto; /* Center the buttons */
+    width: 80%;
+    max-width: none;
+    margin: 5px auto;
   }
   .book-result .ajouter-button {
-    font-size: 7px; /* Adjust the font size for smaller screens */
-    width: 80%; /* Adjust the width to a percentage for responsiveness */
+    font-size: 7px;
+    width: 80%;
   }
 }
 @media screen and (min-width: 600px) {
@@ -179,8 +180,9 @@ p {
     width: 31%;
   }
   .book-result .rechercher-button,
-  .book-result .annuler-button, .book-result .ajouter-button {
-    font-size: 8px; /* Adjust the font size for larger screens */
+  .book-result .annuler-button,
+  .book-result .ajouter-button {
+    font-size: 8px;
   }
 }
 
@@ -199,28 +201,35 @@ p {
 }
 
 #maPocheListe h2 {
-  margin-top: 0; /* Add this line to set margin-top to 0 for h2 element */
+  margin-top: 0;
   display: block;
   text-align: center;
 }
 
 .bookmark-icon {
-  display: none; /* Hide the former bookmark icon */
+  display: none;
 }
 
 .book-result {
-  position: relative; /* Set the container to relative position */
+  position: relative;
 }
 
-/* Style the Font Awesome bookmark icon */
+/* STYLE FONT AWESOME ICON */
 .book-result .fas.fa-bookmark {
   display: inline-flex;
-  font-size: 27px; /* Adjust the size as needed */
-  color: rgb(22, 171, 124); /* Set the color any other desired color */
+  font-size: 27px;
+  color: rgb(22, 171, 124);
   position: absolute;
-  top: 5mm; /* 2mm from the top */
-  right: 2mm; /* 2mm from the right */
-  margin: 0; /* No margin for spacing */
+  top: 5mm;
+  right: 2mm;
+  margin: 0;
+}
+@media screen and (max-width: 600px) {
+  .book-result .fas.fa-bookmark {
+    font-size: 15px;
+    top: 2mm;
+    right: 2mm;
+  }
 }
 
 .delete-icon {
@@ -263,8 +272,8 @@ p {
 }
 
 .book-result.bookmarked img {
-  max-width: 100%; /* Ensure the image does not exceed its container */
-  max-height: 100%; /* Set a fixed height for all images, adjust as needed */
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
   margin-bottom: 10px;
 }
@@ -292,13 +301,13 @@ p {
 }
 
 #maPocheListeContainer {
-  margin: auto; /* This centers the container horizontally */
-  max-width: 600px; /* Adjust the max-width based on your design */
-  text-align: center; /* This centers the content inside the container */
+  margin: auto;
+  max-width: 600px;
+  text-align: center;
 }
 
 .maPocheListe {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the content vertically within the container */
+  align-items: center;
 }

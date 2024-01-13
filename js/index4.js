@@ -1,14 +1,12 @@
 afficheButtonAjouterLivre();
 
-// definition  of the function line is 3. Line 1 is unitilization of function//
+
 function afficheButtonAjouterLivre(){
-    // Check if the container exists
     let maPocheListeContainer = document.getElementById("maPocheListeContainer");
 
     if (!maPocheListeContainer) {
         maPocheListeContainer = document.createElement("div");
         maPocheListeContainer.id = "maPocheListeContainer";
-
     }
 
     // Create the 'h2' element
@@ -18,9 +16,6 @@ function afficheButtonAjouterLivre(){
     // Append the 'h2' element to the container
     maPocheListeContainer.appendChild(maPochListeHeading);
 
-    // Append the maPocheListe to the container
-    //maPocheListeContainer.appendChild(maPocheListe);
-
     // Set the container to flex and arrange its children in a column
     maPocheListeContainer.style.display = "flex";
     maPocheListeContainer.style.flexDirection = "column";
@@ -28,7 +23,7 @@ function afficheButtonAjouterLivre(){
      // Move the container to the bottom of the body
      document.body.appendChild(maPocheListeContainer);
 
-    //end
+    
     //construct element
     let button = createButton("AJOUTER UN LIVRE","Ajouter-Livre-Button","ajouter-button");
     button.addEventListener("click",function(event){  
@@ -54,32 +49,24 @@ function afficheButtonAjouterLivre(){
         let maPocheListeText = document.getElementById("content");
         
         document.body.appendChild(maPocheListe);
-        
-
-
 
         if (maPocheListeText) {
             document.body.appendChild(content);
             content.style.display = "none";      
         }
 
-
+        displayBookmarkedBooks(); 
         
-
-        displayBookmarkedBooks(); //DISPLAYING BOOKMARKED LIST CONSTANTLY?
+        button.style.display = "none"; 
         
-        button.style.display = "none"; // Hide the "Ajouter Un Livre" button
-        //document.divMyBooks.appendChild(maPocheListe);
         
     });
-    
     
     let divMyBooks = document.getElementById ("myBooks");
     var hr = document.querySelector ("hr");
     
     hr.parentNode.insertBefore (button,hr);
-    //var maPocheListe = document.getElementById ("maPocheList");
-   // maPocheListe.parentNode.insertBefore(searchForm, maPocheListe.nextSibling);
+    
 }
 
 
@@ -94,9 +81,7 @@ function createButton(text,id,className) {
 
 
  //function To make the search form dynamic//
- function createSearchForm () {
-
-    
+ function createSearchForm () { 
     const searchForm = document.createElement("form");
     searchForm.id = "searchForm";
     searchForm.className = "search-form";
@@ -108,7 +93,6 @@ function createButton(text,id,className) {
     const rechercherButton = createButton("RECHERCHER", "rechercher", "rechercher-button");
 
     // Disable the "RECHERCHER" button initially
-
     rechercherButton.disabled = true;
 
     // Add input event listeners to enable/disable the button based on input
@@ -123,13 +107,8 @@ function createButton(text,id,className) {
         rechercherButton.disabled = !(titreValue && auteurValue);
     }
     
-
-
-
     const annulerButton = createButton("ANNULER", "annuler","annuler-button");
     
-
-
     searchForm.appendChild(titreInput);
     searchForm.appendChild(auteurInput);
     searchForm.appendChild(rechercherButton);
@@ -150,7 +129,6 @@ function createButton(text,id,className) {
         const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(titre + " " + auteur)}&key=${"AIzaSyDfwrwQrF1U1GXA7Z2vMTKHICvTLhBlheM"}`;
         
 
-
         fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(titre + " " + auteur)}&key=${"AIzaSyDfwrwQrF1U1GXA7Z2vMTKHICvTLhBlheM"}`)
             .then(response => response.json())
             .then(data => {
@@ -158,15 +136,11 @@ function createButton(text,id,className) {
                 
                 displaySearchResults(data);
                 
-                console.log ("Have We found The Book?");
-                
+                console.log ("Have We found The Book?");       
     })
-    
-
             .catch(error => {
         // deal with any errors or display an error message to the user
                 console.error("API Request Error:", error);
-                
     
             });   
         } else {
@@ -198,7 +172,7 @@ function createButton(text,id,className) {
 
  }
 
- // + to create input dynamically//
+ //to create input dynamically//
  function createInput(placeholder, id, type, required){
     const input = document.createElement("input");
     input.placeholder = placeholder;
@@ -208,7 +182,7 @@ function createButton(text,id,className) {
     return input;
  }
 
- // + function to hide search results//
+ // function to hide search results//
 function hideSearchResults() {
     // hide search form?
     const searchForm = document.getElementById("searchForm");
@@ -231,23 +205,17 @@ function getOrCreateSearchResultSection(){
        
         const searchForm = document.getElementById("searchForm");
 
-        //insert section?//
+        //insert section//
         searchForm.insertAdjacentElement("afterend", section);
 
         return section;
-
-        //TO DO: create the section below form then display results IN section//
-
     } else {
         return searchResults;
     }
     
 }
 
-let bookmarkedBooks = JSON.parse(sessionStorage.getItem('bookmarkedBook')) || [];//overwriting the session storage each time we bookmark a new book. .make sure that bookmarkedBooks is defined globally. 
-
-
-
+let bookmarkedBooks = JSON.parse(sessionStorage.getItem('bookmarkedBook')) || [];
 function bookmarkBook (identifier, title, author, description, imageLink){
     const existingBook = bookmarkedBooks.find(book => book.identifier === identifier);
 
@@ -293,7 +261,7 @@ function displaySearchResults(data) {
             const author = bookInfo.authors ? bookInfo.authors.join(", ") : "Unknown Author";
             const identifier = item.id; //identifier?
             
-        //displaying book image??//
+        //displaying book image//
             const imageLink = bookInfo.imageLinks ? bookInfo.imageLinks.thumbnail : ",";
 
             const bookResult = document.createElement("div");
@@ -306,12 +274,10 @@ function displaySearchResults(data) {
                 bookmarkBook(identifier, title, author, bookInfo.description, imageLink);
             };
             
-
             //book mark container?
             const bookmarkContainer = document.createElement("span");
             bookmarkContainer.className = "bookmark-icon";
             bookmarkContainer.innerHTML = "&#128278;";
-
 
 //making the bookmark clickable?
             bookmarkContainer.onclick = function() {
@@ -321,7 +287,6 @@ function displaySearchResults(data) {
 
 
             bookResult.appendChild(bookmarkContainer);
-            
             bookResult.innerHTML = `<h3>${title}</h3><p>Author: ${author}</p><p>Identifier: ${identifier}</p>`; //display idententifier?
 
             const bookDescription = document.createElement("p");
@@ -350,14 +315,15 @@ function displaySearchResults(data) {
 
             // Add an event listener for error handling
             bookCover.addEventListener("error", function() {
-    // If the image fails to load, set a fallback image
+
+    
                 bookCover.src = "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Salesforce_P1_FR/unavailable.png";
             });
             bookResult.appendChild(bookmarkIcon); // Replace the old bookmark container with the new bookmark icon
             bookResult.appendChild(bookCover);
 
 
-//delete button?
+//delete button//
            
             deleteContainer = document.createElement("span");
             deleteContainer.className = "delete-icon delete-icon-search";
@@ -411,14 +377,12 @@ fontAwesomeLink.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15
 document.head.appendChild(fontAwesomeLink);
 
 
-// fix poch listing : make appear 2) storage sesssion3) Have ma poch list text appear before form appears
+
+
 
 function createBookElement(book, isBookmarked) {
-    const pocheListe = document.getElementById("maPocheListe");
     const bookElement = document.createElement("div");
-
-    bookElement.classList.add("book-result","bookmarked");
-    pocheListe.appendChild(bookElement);
+    bookElement.classList.add("book-result", isBookmarked ? "bookmarked" : "");
 
     // Create elements for book details
     const titleElement = document.createElement("h3");
@@ -432,25 +396,19 @@ function createBookElement(book, isBookmarked) {
 
     // Create element for book description
     const descriptionElement = document.createElement("p");
-    if (book.description) {
-        descriptionElement.textContent = book.description;
-    } else {
-        descriptionElement.textContent = "INFORMATION IS MISSING";
-        descriptionElement.classList.add("information-missing");
-    }
+    descriptionElement.innerHTML = book.description || "<span class='information-missing'>INFORMATION IS MISSING</span>";
+
     // Create element for book cover
     const coverElement = document.createElement("img");
-    //coverElement.src = book.imageLink ? book.imageLink : "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Salesforce_P1_FR/unavailable.png";
     coverElement.src = book.imageLink || "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Salesforce_P1_FR/unavailable.png";
-   
     coverElement.alt = `${book.title} Cover`;
     coverElement.classList.add("book-cover");
 
     // Add an event listener for error handling
-coverElement.addEventListener("error", function() {
-    // If the image fails to load, set a fallback image
-    coverElement.src = "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Salesforce_P1_FR/unavailable.png";
-});
+    coverElement.addEventListener("error", function () {
+        // If the image fails to load, set a fallback image
+        coverElement.src = "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Salesforce_P1_FR/unavailable.png";
+    });
 
     // Append details to the book element
     bookElement.appendChild(titleElement);
@@ -460,30 +418,12 @@ coverElement.addEventListener("error", function() {
     bookElement.appendChild(coverElement);
 
     if (isBookmarked) {
-        const deleteIcon = createDeleteIcon(book); // Pass book as a parameter
-        
-        
-        
-       // const deleteIcon = document.createElement("span");
-       
-       // deleteIcon.className = "delete-icon";
-        //deleteIcon.innerHTML = "&#128465;";// Unicode for bin icon
-
-
-        //deleteIcon.style.marginRight = "20px";
-
-        // Append the bookmark icon to the book element
-        //bookElement.appendChild(bookmarkIcon);
-
-
-       // deleteIcon.onclick = function() {
-           // deleteBookFromList(book.identifier);
-       // };
+        // Create delete icon for bookmarks
+        const deleteIcon = createDeleteIcon(book);
+        // Append delete icon to the book element
         bookElement.appendChild(deleteIcon);
     }
-    // Append book element to the maPocheListe
-    pocheListe.appendChild(bookElement);
-    
+
     return bookElement;
 }
 
@@ -506,19 +446,6 @@ function createDeleteIcon(book) {
     return deleteIcon;
 }
 
-//function createBookmarkIcon(book) {
-   // const bookmarkIcon = document.createElement("span");
-  //  bookmarkIcon.className = "fas fa-bookmark";
-  //  bookmarkIcon.style.color = "#ee00ff";
-   // bookmarkIcon.style.cursor = "pointer";
-
-   // bookmarkIcon.addEventListener("click",function(){
-   //     addBookToList(book.identifier);
-
-  //  });
-//}
-
-
 
 function displayBookmarkedBooks() {
     const pocheListe = document.getElementById("maPocheListe");
@@ -529,9 +456,7 @@ function displayBookmarkedBooks() {
 
           // Create delete icon for bookmarks
           const deleteIcon = document.createElement("span");
-          deleteIcon.className = "delete-icon";
-
-          
+          deleteIcon.className = "delete-icon";  
   
           // Making the delete icon clickable
           deleteIcon.onclick = function() {
@@ -543,15 +468,12 @@ function displayBookmarkedBooks() {
         // Append book element to the maPocheListe
         pocheListe.appendChild(bookElement);
     });
-    // Move the "Ma Poch' Liste" section to the bottom of the body after updating content
-   // document.body.appendChild(pocheListe);
-    //maPocheListe.style.display = "block";
-
+    
     // Display the "Ma Poch' Liste" section only if there are bookmarked books
     if (bookmarkedBooks.length > 0) {
         pocheListe.style.display = "flex";
         content.style.display = "none";
-         //Resoposible for display of poche liste
+
         // Move the "Ma Poch' Liste" section to the bottom of the body after updating content
         document.body.appendChild(pocheListe);
     } else {
@@ -576,12 +498,4 @@ function deleteBookFromList(identifier) {
     }
     
 }
-
-
-
-
-//upoad to git and Open classroon
-
-// 1.Small screen need to adjusted 2. ajouter liver buton centered 3 rechercher  et annuler alighned.4 the 2 boxes of the form need t be filled to do search .5 Bookmark cannot be added twice
-//6.align search results (add a fixed height in CSS in decription) . 7.There is an addition calss that needstto be deleted
 
