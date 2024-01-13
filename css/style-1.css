@@ -208,13 +208,19 @@ p {
   display: none; /* Hide the former bookmark icon */
 }
 
+.book-result {
+  position: relative; /* Set the container to relative position */
+}
+
 /* Style the Font Awesome bookmark icon */
 .book-result .fas.fa-bookmark {
   display: inline-flex;
   font-size: 27px; /* Adjust the size as needed */
-  color: rgb(241, 42, 145); /* Set the color to pink or any other desired color */
-  margin-top: auto;
-  margin-right: 7px;
+  color: rgb(22, 171, 124); /* Set the color any other desired color */
+  position: absolute;
+  top: 5mm; /* 2mm from the top */
+  right: 2mm; /* 2mm from the right */
+  margin: 0; /* No margin for spacing */
 }
 
 .delete-icon {
