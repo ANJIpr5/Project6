@@ -2,6 +2,9 @@ afficheButtonAjouterLivre();
 
 
 function afficheButtonAjouterLivre(){
+    
+
+
     let maPocheListeContainer = document.getElementById("maPocheListeContainer");
 
     if (!maPocheListeContainer) {
