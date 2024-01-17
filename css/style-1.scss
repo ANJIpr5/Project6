@@ -1,3 +1,12 @@
+/*GOOGLE FONT*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body{
+  font-family: 'Roboto',sans-serif;
+
+}
+
 /*HEADER STYLES*/
 #p,
 h1 {
@@ -89,7 +98,7 @@ p {
 /* BUTTON STYLES */
 .rechercher-button,
 .annuler-button {
-  display: inline-flex;
+  display: block;
   cursor: pointer;
   text-align: center;
   font-size: 1vw;
@@ -97,18 +106,20 @@ p {
   padding: 5px;
   width: 40%;
   max-width: 172px;
+  margin: 5px auto;
+  margin: 5px 0;
 }
 
 .rechercher-button {
   background-color: #4f8607;
   color: #fff;
-  margin-right: 3px;
+  //margin-bottom: 3px;
 }
 
 .annuler-button {
   background-color: #b84f04;
   color: #ffff;
-  margin-left: 3px;
+  //margin-top: 3px;
 }
 
 
@@ -229,10 +240,36 @@ p {
   right: 2mm;
   margin: 0;
 
-  @media screen and (max-width: 600px) {
-    font-size: 15px; 
+@media screen and (max-width: 400px) { 
+    font-size: 14px; 
     top: 2mm; 
     right: 2mm; 
+  }
+  
+  @media screen and (max-width: 400px) {
+    /* Adjustments for Very Small Screens */
+    .rechercher-button,
+    .annuler-button,
+    .ajouter-button {
+      font-size: 5px;
+      width: 100%;
+      max-width: none;
+      margin: 5px auto;
+    }
+    .ajouter-button {
+      font-size: 7px;
+    }
+    #myBooks {
+      width: 100%;
+    }
+    #logoImage {
+      max-width: 80%;
+    }
+    .book-result .fas.fa-bookmark {
+      font-size: 15px;
+      top: 2mm;
+      right: 2mm;
+    }
   }
 }
 
@@ -317,3 +354,4 @@ p {
   flex-direction: column;
   align-items: center;
 }
+

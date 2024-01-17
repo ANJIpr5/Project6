@@ -361,7 +361,7 @@ let maPocheListe = document.getElementById("maPocheListe");
 
 // Check if the section exists
 if (!maPocheListe) {
-    maPocheListe = document.createElement("maPocheListe");
+    maPocheListe = document.createElement("section"); // currently element, transform into a section
     maPocheListe.id = "maPocheListe";
 
     // Move the section to the bottom of the body
