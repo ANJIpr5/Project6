@@ -251,7 +251,7 @@ function displaySearchResults(data) {
     console.log("Displaying search results. Clearing previous results.");
     const searchResultsSection = getOrCreateSearchResultSection();
 
-    searchResultsSection.innerHTML = ""; //Empty the search results
+    searchResultsSection.innerHTML = ""; 
 
     
         if (data.items && data.items.length > 0) {
@@ -434,8 +434,8 @@ function createDeleteIcon(book) {
     deleteIcon.className = "delete-icon fas fa-trash-alt";
 
     // Additional styling if needed
-    deleteIcon.style.color = "#ee00ff"; // Set the color
-    deleteIcon.style.cursor = "pointer"; // Optional: Add a pointer cursor for better UX
+    deleteIcon.style.color = "#ee00ff"; 
+    deleteIcon.style.cursor = "pointer"; 
     // Add a click event listener if you want it to be clickable
     deleteIcon.addEventListener("click", function() {
         deleteBookFromList(book.identifier);
