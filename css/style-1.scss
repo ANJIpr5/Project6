@@ -18,7 +18,7 @@ h1 {
 p {
   font-size: x-small;
   font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
+  text-align: left;
   margin-bottom: 5px;
 }
 
@@ -113,13 +113,13 @@ p {
 .rechercher-button {
   background-color: #4f8607;
   color: #fff;
-  //margin-bottom: 3px;
+  
 }
 
 .annuler-button {
   background-color: #b84f04;
   color: #ffff;
-  //margin-top: 3px;
+  
 }
 
 
@@ -147,6 +147,9 @@ p {
   width: 100%; // Default width for small screens (1 book per line)
   max-height: 100%;
   font-size: 1vw;
+  background-color: #e7e5e5;
+  margin: 2px; 
+  
 
   @media screen and (max-width: 400px) {
     width: 100%; // Adjust the width for very small screens
@@ -161,6 +164,7 @@ p {
     font-size: small;
     font-weight: bold;
     margin-bottom: 5px;
+    text-align: left;
   }
 
   .book-result img {
@@ -208,12 +212,13 @@ p {
 }
 
 #maPocheListe {
-  background-color: #c8f6d0;
+  background-color: #78f48c;
   display: flex;
   flex-wrap: wrap;
   font-size: 1vw;
   text-align: center;
   font-weight: lighter;
+  
 }
 
 #maPocheListe h2 {
@@ -304,6 +309,7 @@ p {
   height: auto;
   border: 1px solid #ddd;
   max-height: 300px;
+  text-align: center;
 }
 
 .book-result.bookmarked p.information-missing {
