@@ -140,6 +140,8 @@ p {
 /* BOOK RESULT STYLES */ 
 .book-result.bookmarked .delete-icon {
   display: inline; /* Hide delete icons for search results */
+
+  
 }
 
 .book-result {
@@ -218,6 +220,7 @@ p {
   font-size: 1vw;
   text-align: center;
   font-weight: lighter;
+  justify-content: center;
   
 }
 
@@ -284,7 +287,12 @@ p {
 
 .book-result.bookmarked {
   box-sizing: border-box;
-  width: 100%;
+  width: 100%; // Default width for small screens (1 book per line)
+  max-height: 100%;
+  font-size: 1vw;
+  background-color: #e7e5e5;
+  margin: 2px; 
+  position: relative;
 }
 
 #book-result.bookmarked {
